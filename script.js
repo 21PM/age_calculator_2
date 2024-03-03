@@ -8,17 +8,6 @@ var Str1 = Ptag.innerText;
 
 
 
-
-// if(inputIf == "Invalid Date"){
-//     console.log("hello");
-// }else{
-//     console.log("world");
-// }
-
-
-
-
-
 calBtn.addEventListener('click',function(){
 
 
@@ -29,31 +18,78 @@ calBtn.addEventListener('click',function(){
     if(inputIf == "Invalid Date"){
         alert("Please enter your birthday");
     }else{
-        var currentDate = new Date();
-
-        var currentYear = new Date(currentDate).getFullYear();
-        // console.log(currentYear);?
-    
-        var inputDateConvert = new Date(inputDate.value);
-        var inputYear =   inputDateConvert.getFullYear();
-    
        
-    
-        var YearDiff = currentYear - inputYear;
-        // console.log(YearDiff);
-    
         
-    
-        if(YearDiff > 0)
-        {
-            Ptag.innerText = (Str1.replace("0",YearDiff));
-        }else{
-            Ptag.innerText = Str1;
-        }
-    }
+    // ************ Main Function which calculates the DAYS **********************
+
+    // Get the current date
+
+
+    var curDay = new Date();
+    // console.log(curDay);
+
+     // Get the selected date from the input value
+     var selectedDay = new Date(inputDate.value);
+
+    // Calculate the difference in milliseconds
+    var timeDifference = curDay.getTime() - selectedDay.getTime();
+
+
+    // Convert the difference to days
+
+    var dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    console.log(dayDifference);
     
 
     // ************ Main Function which calculates the year **********************
+  
+    var currentDate = new Date();
+
+    var currentYear = new Date(currentDate).getFullYear();
+    // console.log(currentYear);
+
+    var inputDateConvert = new Date(inputDate.value);
+    var inputYear =   inputDateConvert.getFullYear();
+
+    var YearDiff = currentYear - inputYear;
+    console.log(YearDiff);
+
+    
+
+    if(dayDifference > 365 * YearDiff && dayDifference>0)
+    {
+        Ptag.innerText = (Str1.replace("21",YearDiff));
+    }else {
+        Ptag.innerText = (Str1.replace("21",YearDiff -1));
+    }
+    }
+
+
+
+
+
+    // // ************ Main Function which calculates the DAYS **********************
+
+    // // Get the current date
+
+
+    // var curDay = new Date();
+    // // console.log(curDay);
+
+    //  // Get the selected date from the input value
+    //  var selectedDay = new Date(inputDate.value);
+
+    // // Calculate the difference in milliseconds
+    // var timeDifference = curDay.getTime() - selectedDay.getTime();
+
+
+    // // Convert the difference to days
+
+    // var dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    // console.log(dayDifference);
+    
+
+    // // ************ Main Function which calculates the year **********************
   
     // var currentDate = new Date();
 
@@ -70,7 +106,7 @@ calBtn.addEventListener('click',function(){
 
     
 
-    // if(YearDiff > 0)
+    // if(YearDiff > 0 && dayDifference > 365)
     // {
     //     Ptag.innerText = (Str1.replace("0",YearDiff));
     // }else{
@@ -78,5 +114,26 @@ calBtn.addEventListener('click',function(){
     // }
 
 
+    // // ************ Main Function which calculates the DAYS **********************
+
+    // Get the current date
+
+
+    // var curDay = new Date();
+    // // console.log(curDay);
+
+    //  // Get the selected date from the input value
+    //  var selectedDay = new Date(inputDate.value);
+
+    // // Calculate the difference in milliseconds
+    // var timeDifference = curDay.getTime() - selectedDay.getTime();
+
+
+    // // Convert the difference to days
+
+    // var dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    // console.log(dayDifference);
+
+ 
 
 })
